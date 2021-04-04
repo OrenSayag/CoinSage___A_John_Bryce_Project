@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="orenStyle.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+	<script src="script.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com"> 
+	<link rel="shortcut icon" type="image/jpg" href="imgs/מטבע coin sage png.png"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> <!-- poppins font -->
+
+	<link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+	<title>Project 2</title>
+</head>
+<body>
+	
+	<!-- <div id="golden-cage"></div> -->
+	<!-- <div id="log-log-in" class="flex-cc">
+		<div id="logo" class="flex-sc">Logo</div>
+		<div id="login-cont" class="flex-sbc">
+			<button class="flex-cc">Login</button>
+			<button class="flex-cc">Sign Up</button>
+		</div>
+	</div> -->
+	<!-- <div id="golden-cage"></div> -->
+
+	<div id="title-cont" class="flex-cc">
+		<img src="imgs/מטבע coin sage png.png" alt="" id="title">
+		<button class="translate" id="start-btn" data-speed="200">
+			<!-- <div>Start.</div> -->
+			<i class="fas fa-chevron-down"></i>
+			</button>
+	</div>
+
+	<div id="navbar" class="flex-sbc translate" data-speed="2">
+
+		<div class="flex-sbc fcol navbar-btn-cont">
+			<div id="navbar-left-btn" class="flex-cc">
+				<i class="fas fa-arrow-left"></i>
+			</div>
+			<div id="navbar-left-title" class="flex-cc">Live Reports</div>
+		</div>
+		<div id="current-page-title" class="flex-cc">Home</div>
+		<div class="flex-sbc fcol navbar-btn-cont">
+			<div id="navbar-right-btn" class="flex-cc">
+				<i class="fas fa-arrow-right"></i>
+			</div>
+			<div id="navbar-right-title" class="flex-cc">About</div>
+		</div>
+	</div>
+
+	
+	
+	<div id="main-cont">
+		<div id="home-body" class="flex-sc fcol">
+			<!-- <img src="/imgs/exmp.jpg" alt=""> -->
+			<div id="search-bar" class="flex-cc translate" data-speed="0.7">
+				<div class="flex-sbc" id="search-bar-cont">
+					<input type="search" id="search-input" class="flex-sbc" placeholder="Search by symbol">
+					<button id="search-btn" class="flex-cc"><i class="fas fa-search"></i></button>
+				</div>
+			</div>
+			<div id="coin-grid">
+				<!-- <div class="coin-cell fcol flex-sbs">
+					<div class="fcol flex-sbs cc-top">
+						<div class="cc-sym">EXP</div>
+						<div class="cc-name">Example</div>
+						<button class="cc-more">More info</button>
+						<input type="checkbox" class="cc-tog">
+						<label class="toggle cc-tog">
+							<input type="checkbox" class="cToggle" class="cc-tog"/>
+							<span class="slider cc-tog"></span>
+						</label>
+					</div>
+				</div> -->
+			</div>
+		</div>
+
+	</div>
+	<!-- <div class="cc-bot">
+		<div class="loading-cont flex-cc">
+			<div class="loading"></div>
+		</div>
+		
+		<img src="" alt="" class="cc-pic">
+		<div class="cc-tousd flex-sc">654564</div>
+		<div class="cc-tonis flex-sc">654564</div>
+		<div class=".cc-toeur flex-sc">654564</div>
+		<a href="#">wiki</a>
+	</div> -->
+
+
+	
+	<!-- <div id="lr-body" class="flex-cc">
+		<div id="graph-cont" class="flex-sbc">
+			<div class="fcol flex-ss lr-cc-cont">
+				<div>Show/Hide</div>
+				<div class="lr-coin-cell flex-sbc">
+					<input type="checkbox">
+					<div class="flex-sbc">
+						<div class="lr-cc-color"></div>
+						<div class="lr-cc-sym">EXP</div>
+					</div>
+				</div>
+			</div>
+			<div id="graph"></div>
+		</div>
+	</div> -->
+
+	<!-- <div id="about-body" class="flex-cc">
+		<div id="about-cont" class="fcol flex-sc">
+			<div id="about-blah" class="fcol flex-ss">
+				<div class="flex-sc">About This Project:</div>
+				<div class="flex-sc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure excepturi debitis, magnam magni quibusdam cupiditate, ipsam aperiam delectus, sit ex incidunt doloribus perspiciatis laboriosam. Repellendus culpa enim optio sit dolores officia perspiciatis!</div>
+			</div>
+			<img src="" alt="" id="aboutpic">
+		</div>
+	</div> -->
+
+	<!-- <div id="overcoin-alert" class="flex-cc fcol">
+		<div id="oca-cont" class="fcol flex-cc">
+			<div id="overcoin-mess" class="fcol flex-sbc">
+				<div class="flex-cc">
+					Whoops!
+				</div>
+				<div class="flex-sbc fcol">
+					<div>
+						You've reached the limit of live-reported coins (5).
+					</div>
+					<div>
+						You can trade-off an existing live reported coin for this one.
+					</div>
+				</div>
+			</div>
+			<div class="overcoin-cc flex-sbc fcol">
+				<div class="flex-sc">EXP</div>
+				<div class="flex-sc">Example</div>
+			</div>
+			<div id="oc-validation">
+				Will be traded for the SYM coin.
+			</div>
+			<div class="flex-sbc oc-btn-disabled" id="oc-btn-cont">
+				<button class="oc-btn" id="overcoin-tradeoff-btn" disabled>Trade-Off</button>
+				<button class="oc-btn" id="overcoin-cancel-btn">Cancel</button>
+			</div>
+		</div>
+	</div> -->
+
+
+	<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+	<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+</body>
+</html>
+
