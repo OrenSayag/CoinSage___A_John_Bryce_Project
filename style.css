@@ -75,7 +75,10 @@ body::-webkit-scrollbar {
 
 #overcoin-alert {
   position: absolute;
-  height: 80vh;
+  min-height: 80vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   top: 100vh;
   width: 100%;
   background-color: #393e41f5;
@@ -120,7 +123,10 @@ body::-webkit-scrollbar {
 }
 
 #oca-cont {
-  height: 50%;
+  min-height: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 50%;
 }
 
@@ -137,11 +143,22 @@ body::-webkit-scrollbar {
   transition: .1s;
   border-radius: 6px;
   padding: 10px 0;
+  margin-bottom: 35px;
   background-color: #424242;
 }
 
+.overcoin-cc-2 {
+  margin-bottom: 35px;
+}
+
 #overcoin-cc-cont {
-  width: 1700px;
+  min-width: 1700px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 #title-cont {
@@ -260,6 +277,7 @@ body::-webkit-scrollbar {
 #about-cont {
   background: -webkit-gradient(linear, left top, left bottom, from(#202020), to(transparent));
   background: linear-gradient(to bottom, #202020, transparent);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(220, 20, 60, 0.144));
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
           box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
@@ -273,11 +291,29 @@ body::-webkit-scrollbar {
 }
 
 #passion-blah {
-  height: 80vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   -webkit-user-select: text;
      -moz-user-select: text;
       -ms-user-select: text;
           user-select: text;
+  margin-top: auto;
+  margin-bottom: 70px;
+  background-color: rgba(0, 0, 0, 0.637);
+}
+
+#about-img-thumb {
+  width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-size: .9rem;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background: linaer-gradient(90deg, rgba(0, 0, 0, 0.7) 90%, linen);
+  background-color: rgba(0, 0, 0, 0.637);
 }
 
 #passion-blah div {
@@ -385,6 +421,9 @@ body::-webkit-scrollbar {
   padding: 5px;
   position: relative;
   border-radius: 15px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   background-color: #393e41cb;
   -webkit-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -581,6 +620,14 @@ body::-webkit-scrollbar {
   background-color: #26232279;
 }
 
+#about-img {
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
 /* (E) ON CHECKED (SWITCHED ON) */
 /* (E1) MAGIC CSS SLIDING ANIMATION */
 .slider, .slider::before {
@@ -624,7 +671,8 @@ body::-webkit-scrollbar {
 
 @media all and (min-width: 1200px) and (max-width: 1900px) {
   #overcoin-cc-cont {
-    width: 1000px;
+    min-width: 1000px;
+    width: 95vw;
   }
   .overcoin-cc {
     width: 150px;
@@ -659,7 +707,6 @@ body::-webkit-scrollbar {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    height: 400px;
   }
   #overcoin-blah > div {
     font-size: 1rem;
@@ -694,7 +741,6 @@ body::-webkit-scrollbar {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    height: 400px;
   }
   #overcoin-blah > div {
     font-size: 1rem;
@@ -710,8 +756,11 @@ body::-webkit-scrollbar {
   #about-blah {
     width: 100%;
   }
+  #passion-title {
+    font-size: 1.2rem;
+  }
   #passion-blah div {
-    font-size: 1rem;
+    font-size: .7rem;
     letter-spacing: none;
   }
   #title {
@@ -759,7 +808,6 @@ body::-webkit-scrollbar {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    height: 400px;
   }
   #overcoin-blah > div {
     font-size: 1rem;
@@ -775,8 +823,11 @@ body::-webkit-scrollbar {
   #about-blah {
     width: 100%;
   }
+  #passion-title {
+    font-size: 1.2rem;
+  }
   #passion-blah div {
-    font-size: 1rem;
+    font-size: .7rem;
     letter-spacing: none;
   }
   * {

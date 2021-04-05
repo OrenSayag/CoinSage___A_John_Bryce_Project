@@ -156,7 +156,7 @@ $(function () {
             loadingAn.remove();
             $("#coin-grid").css({ "display": "grid" });
             $("#coin-grid").removeClass("flex-cc");
-            for (var i = 1; i < 20; i++) { //from 1 because 'whirl fincnace' (first coin) is acting weird having an  id of ""
+            for (var i = 1; i < 101; i++) { //from 1 because 'whirl fincnace' (first coin) is acting weird having an  id of ""
                 coinArr.push(data[i]);
             }
         }).done(function () {
@@ -228,9 +228,11 @@ $(function () {
         });
         // MODULE
         coinCell.find('label').click(function (e) {
+            //TOOLS
+            var sym; //helps remove the right coin from liveReportArr
             if (!$('#overcoin-alert').length) {
                 var newCoin_1 = $(e.currentTarget).siblings('.cc-sym')[0].textContent; // to use when replacing coins
-                console.dir($(e.currentTarget));
+                // console.dir($(e.currentTarget));
                 var status_1 = $(e.currentTarget).find('.cToggle').is(':disabled');
                 if (status_1) {
                     $('#main-cont').html('');
@@ -238,20 +240,21 @@ $(function () {
                     $('#coin-grid').css({ "height": "fit-content" });
                     for (var _i = 0, liveReportsArr_1 = liveReportsArr; _i < liveReportsArr_1.length; _i++) {
                         var item = liveReportsArr_1[_i];
-                        $("\n\t\t\t\t\t<div class=\"overcoin-cc flex-sbc fcol\">\n\t\t\t\t\t<div class=\"flex-sc\">" + item + "</div>\n\t\t\t\t\t<div class=\"flex-sc\" id=\"oc-cc-name\">" + namesArr[liveReportsArr.indexOf(item)] + "</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t").appendTo($('#overcoin-cc-cont'));
-                        //remove coin name if screen is phony
-                        // if($(window).width()<480){
-                        // 	$('#oc-cc-name').remove();
-                        // }
+                        // $(`
+                        // <div class="overcoin-cc flex-sbc fcol">
+                        // <div class="flex-sc">${item}</div>
+                        // <div class="flex-sc" id="oc-cc-name">${namesArr[liveReportsArr.indexOf(item)]}</div>
+                        // </div>
+                        // `).appendTo($('#overcoin-cc-cont'));
+                        $("\n\t\t\t\t\t\t<div class=\"coin-cell fcol flex-sbs overcoin-cc-2\">\n\t\t\t\t\t\t\t<div class=\"fcol flex-sbs cc-top\">\n\t\t\t\t\t\t\t\t<div class=\"cc-sym\">" + item + "</div>\n\t\t\t\t\t\t\t\t<div class=\"cc-name\">" + namesArr[liveReportsArr.indexOf(item)] + "</div>\n\t\t\t\t\t\t\t\t<label class=\"toggle cc-tog tog-lr-tool\">\n\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"cToggle\" checked class=\"cc-tog\"/>\n\t\t\t\t\t\t\t\t\t<span class=\"slider cc-tog\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t").appendTo($('#overcoin-cc-cont'));
                     }
-                    $('.overcoin-cc').click(function (e) {
-                        $('#oc-temp-validator').remove();
-                        $('.overcoin-cc').css("background", "rgb(66, 66, 66)");
-                        $(e.currentTarget).css("background", "maroon");
-                        $('.overcoin-cc').removeClass('the-one');
-                        $(e.currentTarget).addClass('the-one');
-                        var sym = $('.the-one>div:nth-of-type(1)').text();
-                        $("\n\t\t\t\t\t<div id=\"oc-temp-validator\">\n\t\t\t\t\t\tDo you want <span>" + newCoin_1 + "</span> to replace <span>" + sym + "</span> in your live reports?\n\t\t\t\t\t</div>\n\t\t\t\t\t").insertBefore('#oc-btn-cont');
+                    $('.cToggle').click(function (e) {
+                        $('.oc-temp-validator').remove();
+                        $('.cToggle').removeAttr('checked');
+                        $('.cToggle').prop("checked", true);
+                        $(e.target).prop("checked", false);
+                        sym = $(e.target).parent().parent().find('.cc-sym').text();
+                        $("\n\t\t\t\t\t<div class=\"oc-temp-validator\">\n\t\t\t\t\t\tDo you want <span>" + newCoin_1 + "</span> to replace <span>" + sym + "</span> in your live reports?\n\t\t\t\t\t</div>\n\t\t\t\t\t").insertBefore('#oc-btn-cont');
                         // $('#overcoin-alert span').css({"color": "red", "font-size":"1.5rem"});
                         $('#overcoin-tradeoff-btn').removeAttr('disabled');
                     });
@@ -262,7 +265,6 @@ $(function () {
                     });
                     $('#overcoin-tradeoff-btn').click(function () {
                         $('#home-body').remove();
-                        var sym = $('.the-one>div:nth-of-type(1)').text();
                         var index = jQuery.inArray(sym, liveReportsArr);
                         liveReportsArr[index] = newCoin_1;
                         options.data[index] = {
@@ -435,7 +437,7 @@ $(function () {
                 // $('#search-bar').hide();
                 rightArrow.hide();
                 navbarRightTitle.hide();
-                mainCont.html("\n\t\t\t\t<div id=\"about-body\" class=\"flex-cc\">\n\t\t\t\t\t<div id=\"about-cont\" class=\"fcol flex-sc\">\n\t\t\t\t\t\t<div id=\"about-blah\" class=\"fcol flex-ss\">\n\t\t\t\t\t\t\t<div class=\"flex-cc\" id=\"passion-title\">CRYPTO CURRENCY IS OUR PASSION</div>\n\t\t\t\t\t\t\t<div class=\"flex-cc fcol\" id=\"passion-blah\">\n\t\t\t\t\t\t\t\t<div>Coin Sage is the best free server of crypto-currency data. Our mission is to bring everyone in the world the most accurate coin value and make the surface of the crypto-currency market flow with massive waves of gains and losses.</div>\n\t\t\t\t\t\t\t\t<div>We're a start-up looking for every way to make our service more enjoyable. Each day we're making progress and customer feedback is very important to us in our chosen field of passion, gold and green.</div>\n\t\t\t\t\t\t\t\t<div>Please feel free to mail us at headofcustomerservicedepartment@coinsage.com</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<img src=\"\" alt=\"\" id=\"aboutpic\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t");
+                mainCont.html("\n\t\t\t\t<div id=\"about-body\" class=\"flex-cc\">\n\t\t\t\t\t<div id=\"about-cont\" class=\"fcol flex-sc\">\n\t\t\t\t\t\t<div id=\"about-blah\" class=\"fcol flex-ss\">\n\t\t\t\t\t\t\t<div class=\"flex-cc\" id=\"passion-title\">CRYPTO CURRENCY IS OUR PASSION</div>\n\t\t\t\t\t\t\t<img src=\"imgs/about/1.jpg\" id=\"about-img\" alt=\"\">\n\t\t\t\t\t\t\t<div id=\"about-img-thumb\">Oren Sayag, Fullstack Web Developer at Coin Sage</div>\n\t\t\t\t\t\t\t<div class=\"flex-cc fcol\" id=\"passion-blah\">\n\t\t\t\t\t\t\t\t<div>\"Coin Sage is the best free server of crypto-currency data. Our mission is to bring everyone in the world the most accurate coin value and make the surface of the crypto-currency market flow with massive waves of gains and losses.</div>\n\t\t\t\t\t\t\t\t<div>We're a start-up looking for every way to make our service more enjoyable. Each day we're making progress and customer feedback is very important to us in our chosen field of peace, love, gold and green.\"</div>\n\t\t\t\t\t\t\t\t<div>Please feel free to mail us at headofcustomerservicedepartment@coinsage.com</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<img src=\"\" alt=\"\" id=\"aboutpic\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t");
                 break;
             case "Home":
                 // $('#search-bar').show();

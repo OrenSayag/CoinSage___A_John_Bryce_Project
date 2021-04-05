@@ -195,7 +195,7 @@ function loadCoins(){
 			{"display":"grid"}
 		);
 		$("#coin-grid").removeClass("flex-cc");
-		for (let i = 1; i < 20; i++) { //from 1 because 'whirl fincnace' (first coin) is acting weird having an  id of ""
+		for (let i = 1; i < 101; i++) { //from 1 because 'whirl fincnace' (first coin) is acting weird having an  id of ""
 			coinArr.push(data[i]);
 		}
 	}).done(function() {
@@ -295,6 +295,9 @@ function dressCoin(coinObj){
 
 	// MODULE
 	coinCell.find('label').click((e)=>{
+		//TOOLS
+		let sym; //helps remove the right coin from liveReportArr
+
 		if(!$('#overcoin-alert').length){
 			const newCoin = $(e.currentTarget).siblings('.cc-sym')[0].textContent; // to use when replacing coins
 	
@@ -338,33 +341,40 @@ function dressCoin(coinObj){
 
 				
 				for (const item of liveReportsArr) {
+					// $(`
+					// <div class="overcoin-cc flex-sbc fcol">
+					// <div class="flex-sc">${item}</div>
+					// <div class="flex-sc" id="oc-cc-name">${namesArr[liveReportsArr.indexOf(item)]}</div>
+					// </div>
+					// `).appendTo($('#overcoin-cc-cont'));
 					$(`
-					<div class="overcoin-cc flex-sbc fcol">
-					<div class="flex-sc">${item}</div>
-					<div class="flex-sc" id="oc-cc-name">${namesArr[liveReportsArr.indexOf(item)]}</div>
-					</div>
+						<div class="coin-cell fcol flex-sbs overcoin-cc-2">
+							<div class="fcol flex-sbs cc-top">
+								<div class="cc-sym">${item}</div>
+								<div class="cc-name">${namesArr[liveReportsArr.indexOf(item)]}</div>
+								<label class="toggle cc-tog tog-lr-tool">
+									<input type="checkbox" class="cToggle" checked class="cc-tog"/>
+									<span class="slider cc-tog"></span>
+								</label>
+							</div>
+						</div>
 					`).appendTo($('#overcoin-cc-cont'));
-					
-					//remove coin name if screen is phony
-					// if($(window).width()<480){
-					// 	$('#oc-cc-name').remove();
-					// }
 				}
+
+
+
 	
 
-				$('.overcoin-cc').click((e)=>{
-					$('#oc-temp-validator').remove();
-					
-					$('.overcoin-cc').css("background", "rgb(66, 66, 66)")
-					$(e.currentTarget).css("background", "maroon")
-					
-					$('.overcoin-cc').removeClass('the-one');
-					$(e.currentTarget).addClass('the-one');
-	
-					const sym = $('.the-one>div:nth-of-type(1)').text()
-	
+				$('.cToggle').click((e)=>{
+					$('.oc-temp-validator').remove();
+
+					$('.cToggle').removeAttr('checked');
+					$('.cToggle').prop("checked", true);
+					$(e.target).prop("checked", false);
+					sym = $(e.target).parent().parent().find('.cc-sym').text();
+
 					$(`
-					<div id="oc-temp-validator">
+					<div class="oc-temp-validator">
 						Do you want <span>${newCoin}</span> to replace <span>${sym}</span> in your live reports?
 					</div>
 					`).insertBefore('#oc-btn-cont');
@@ -396,7 +406,6 @@ function dressCoin(coinObj){
 				$('#overcoin-tradeoff-btn').click(()=>{
 					$('#home-body').remove();
 	
-					const sym = $('.the-one>div:nth-of-type(1)').text();
 					const index = jQuery.inArray(sym, liveReportsArr);
 	
 					liveReportsArr[index] = newCoin;
@@ -660,9 +669,11 @@ function rightArrowFoo(){
 					<div id="about-cont" class="fcol flex-sc">
 						<div id="about-blah" class="fcol flex-ss">
 							<div class="flex-cc" id="passion-title">CRYPTO CURRENCY IS OUR PASSION</div>
+							<img src="imgs/about/1.jpg" id="about-img" alt="">
+							<div id="about-img-thumb">Oren Sayag, Fullstack Web Developer at Coin Sage</div>
 							<div class="flex-cc fcol" id="passion-blah">
-								<div>Coin Sage is the best free server of crypto-currency data. Our mission is to bring everyone in the world the most accurate coin value and make the surface of the crypto-currency market flow with massive waves of gains and losses.</div>
-								<div>We're a start-up looking for every way to make our service more enjoyable. Each day we're making progress and customer feedback is very important to us in our chosen field of passion, gold and green.</div>
+								<div>"Coin Sage is the best free server of crypto-currency data. Our mission is to bring everyone in the world the most accurate coin value and make the surface of the crypto-currency market flow with massive waves of gains and losses.</div>
+								<div>We're a start-up looking for every way to make our service more enjoyable. Each day we're making progress and customer feedback is very important to us in our chosen field of peace, love, gold and green."</div>
 								<div>Please feel free to mail us at headofcustomerservicedepartment@coinsage.com</div>
 							</div>
 						</div>
