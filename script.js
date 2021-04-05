@@ -156,7 +156,7 @@ $(function () {
             loadingAn.remove();
             $("#coin-grid").css({ "display": "grid" });
             $("#coin-grid").removeClass("flex-cc");
-            for (var i = 1; i < 101; i++) { //from 1 because 'whirl fincnace' (first coin) is acting weird having an  id of ""
+            for (var i = 1; i < 21; i++) { //from 1 because 'whirl fincnace' (first coin) is acting weird having an  id of ""
                 coinArr.push(data[i]);
             }
         }).done(function () {
